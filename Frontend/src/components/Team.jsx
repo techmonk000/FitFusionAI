@@ -39,7 +39,7 @@ function Team() {
           </ul>
         </div>
         </div>
-z
+
         
 
         <div className="card w-60 h-80 m-4 flex items-center content-center gap-4 rounded-tr-[80px] rounded-bl-[80px] rounded-md bg-gradient-to-tl from-green-400 to-teal-400 shadow-lg shadow-green-950 hover:shadow-2xl hover:shadow-black hover:w-[250px] hover:h-[325px] ">
