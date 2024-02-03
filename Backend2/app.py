@@ -7,7 +7,7 @@ from flask_cors import CORS
 import base64
 import numpy as np
 import pandas as pd
-from termcolor import colored
+"""from termcolor import colored"""
 import io
 import requests
 
@@ -117,14 +117,14 @@ def handle_video_frame():
 
     return jsonify(shoulder_angles)
 
-@app.route("/check/<float:weight>/<float:height>/<int:age>/<string:gender>/<int:level>/<string:meal>/<ailments>/<allergy>")
+@app.route("/check/<float:weight>/<float:height>/<int:age>/<string:gender>/<int:level>/<string:meal>/<ailments>/<allergy>",methods=['POST'])
 
 def calculate_calories_from_user_input(weight, height, age, gender,level,meal,ailments,allergy):
     ailments = ailments.split(',')
     allergy = allergy.split(',')
-    p='https://raw.githubusercontent.com/RajBhattacharyya/fitfusion/master/backend2/functions/Calorie_value.csv'
-    q='https://raw.githubusercontent.com/RajBhattacharyya/fitfusion/master/backend2/functions/final_diseases.csv'
-    r='https://raw.githubusercontent.com/RajBhattacharyya/fitfusion/master/backend2/functions/final_food_items.csv'
+    p='https://raw.githubusercontent.com/techmonk000/FitFusionAI/master/Backend2/functions/Calorie_value.csv'
+    q='https://raw.githubusercontent.com/techmonk000/FitFusionAI/master/Backend2/functions/final_diseases.csv'
+    r='https://raw.githubusercontent.com/techmonk000/FitFusionAI/master/Backend2/functions/final_food_items.csv'
 
     s=requests.get(p).content
     df= pd.read_csv(io.StringIO(s.decode('utf-8')))
@@ -160,15 +160,6 @@ def calculate_calories_from_user_input(weight, height, age, gender,level,meal,ai
             print('Invalid activity level')
             return None
 
-
-    print('Select your activity level:')
-    print('1. Sedentary (little or no exercise)')
-    print('2. Lightly active (light exercise/sports 1-3 days/week)')
-    print('3. Moderately active (moderate exercise/sports 3-5 days/week)')
-    print('4. Very active (hard exercise/sports 6-7 days/week)')
-    print('5. Extra active (very hard exercise/sports or physical job)')
-
-
     if 1 <= level <= 5:
         activity_level_mapping = {
             1: 'sedentary',
@@ -190,10 +181,6 @@ def calculate_calories_from_user_input(weight, height, age, gender,level,meal,ai
                       
     else:
         print('Invalid activity level')
-
-
-
-
 
     num_diseases = len(ailments)
 
@@ -282,7 +269,7 @@ def calculate_calories_from_user_input(weight, height, age, gender,level,meal,ai
         output_list = []
 
         for meal_category, categories in meal_categories.items():
-            output_list.append(colored(meal_category.title(), 'blue', attrs=['bold']))
+            output_list.append(meal_category.title())
             for category in categories:
                 key = meal_category + ': ' + category
                 if key in food_items_by_category and food_items_by_category[key]:
@@ -316,7 +303,7 @@ def calculate_calories_from_user_input(weight, height, age, gender,level,meal,ai
         output_list = []
 
         for meal_category, categories in meal_categories.items():
-            output_list.append(colored(meal_category.title(), 'blue', attrs=['bold']))
+            output_list.append(meal_category.title())
             for category in categories:
                 key = meal_category + ': ' + category
                 if key in food_items_by_category and food_items_by_category[key]:
@@ -332,4 +319,4 @@ def calculate_calories_from_user_input(weight, height, age, gender,level,meal,ai
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000) 
+    app.run(debug=True, port=8000)

@@ -54,12 +54,15 @@ export default function PostureDetection() {
 
                 // Check final angle condition and update rep counter
                 if (
-                  initialAngles.left >= 85 &&
-                  initialAngles.left <= 100 &&
-                  initialAngles.right >= 85 &&
+                  (initialAngles.left >= 85 &&
+                  initialAngles.left <= 100 && left < 60 ) ||
+                  (initialAngles.right >= 85 &&
                   initialAngles.right <= 100 &&
-                  left < 60 &&
-                  right < 60
+                  right < 60)||(initialAngles.left >= 85 &&
+                    initialAngles.left <= 100 && left < 60 &&
+                    initialAngles.right >= 85 &&
+                    initialAngles.right <= 100 &&
+                    right < 60)
                 ) {
                   setRepCounter((prevCounter) => prevCounter + 1);
                 }
@@ -82,7 +85,7 @@ export default function PostureDetection() {
         streamRef.current.getTracks().forEach((track) => track.stop());
       }
     };
-  }, [isCapturing, initialAngles]);;
+  }, [isCapturing, initialAngles]);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300 p-8">
