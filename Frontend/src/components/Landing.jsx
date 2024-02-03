@@ -10,7 +10,7 @@ export default function Landing() {
         <div className="bg-transparent h-dvh px-20 flex items-center justify-around">
           <div className=" p-20 text-zinc-500 text-center w-3/5 font-sans text-4xl tracking-widest leading-normal ">
             Elevate your fitness journey with <span className="font-extrabold text-black ">intelligent </span> training   and
-            <span className="font-extrabold text-black "> personalized</span> wellness with <span className=" text-8xl text-left mt-5 bg-gradient-to-r from-indigo-700 from-10% via-sky-500 via-30% to-purple-600 animate-pulse to-90% inline-block text-transparent font-extrabold bg-clip-text">FitFusionAI</span>
+            <span className="font-extrabold text-black "> personalized</span> wellness with <span className=" text-8xl text-left mt-5 bg-gradient-to-r from-black from-10% via-black via-30% to-purple-600 animate-pulse to-90% inline-block text-transparent font-extrabold bg-clip-text">FitFusionAI</span>
           </div>
 
           <img src={home} alt="home" className="h-96 w-96 rounded-b-full" />

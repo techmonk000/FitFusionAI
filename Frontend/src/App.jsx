@@ -10,6 +10,8 @@ import Details from "./components/Details";
 import UserDetails from "./components/UserDetails";
 import PostureDetection from "./components/PostureDetection";
 import Food from "./components/Food";
+import AboutUs from "./components/AboutUs";
+
 
 // Create a separate component for rendering the main content
 const MainContent = () => {
@@ -29,6 +31,7 @@ const MainContent = () => {
         <Route exact path="/userdetails" element={<UserDetails />} />
         <Route exact path="/posedetector" element={<PostureDetection />} />
         <Route exact path="/food" element={<Food />} />
+        <Route exact path="/aboutus" element={<AboutUs />} />
       </Routes>
       {!isSignupOrLogin && <Footer />}
     </>
