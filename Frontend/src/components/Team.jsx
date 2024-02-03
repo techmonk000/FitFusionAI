@@ -60,7 +60,7 @@ z
               <FiAward style={{ marginRight: '8px' }} /> AI/ML Developer
             </li>
             <li style={{ display: 'flex', alignItems: 'center' }}>
-              <FiAward style={{ marginRight: '8px' }} /> App Developer
+              <FiAward style={{ marginRight: '8px' }} /> Android Developer
             </li>
           </ul>
         </div>
@@ -116,7 +116,7 @@ z
               <FiAward style={{ marginRight: '8px' }} /> AI/ML Developer
             </li>
             <li style={{ display: 'flex', alignItems: 'center' }}>
-              <FiAward style={{ marginRight: '8px' }} /> App Developer
+              <FiAward style={{ marginRight: '8px' }} /> Android Developer
             </li>
           </ul>
         </div>
