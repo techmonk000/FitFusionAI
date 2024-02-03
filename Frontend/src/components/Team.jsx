@@ -118,7 +118,6 @@ function Team() {
               <li className="flex flex-row gap-3 justify-end mt-3 text-xl text-green-800 ">
                 <FaGithub />
                 <FaLinkedin />
-                <FaInstagram />
                 <FaTwitter />
               </li>
               </li>
