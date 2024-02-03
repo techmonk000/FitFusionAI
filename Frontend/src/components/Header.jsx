@@ -128,12 +128,12 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <button onClick={handleLoginClick} className="bg-[#a6c1ee] text-black px-5 py-1.5 rounded-full hover:bg-[#87acec]">
+                <button onClick={handleLoginClick} className="bg-[#1be95c] text-black px-5 py-1.5 rounded-full hover:bg-[#0a7e29]">
                   Sign in
                 </button>
               </li>
               <li>
-                <button onClick={handleSignupClick} className="bg-[#a6c1ee] text-black px-5 py-1.5 rounded-full hover:bg-[#87acec]">
+                <button onClick={handleSignupClick} className="bg-[#1be95c] text-black px-5 py-1.5 rounded-full hover:bg-[#0ca234]">
                   Sign up
                 </button>
               </li>
@@ -142,10 +142,10 @@ export default function Header() {
         )}
         {!isMobile && (
           <div className="flex items-center gap-5">
-            <button onClick={handleLoginClick} className="bg-[#a6c1ee] text-black px-5 py-0.5 rounded-full hover:bg-[#87acec]">
+            <button onClick={handleLoginClick} className="bg-[#1be95c] text-black px-5 py-0.5 rounded-full hover:bg-[#6cd81e]">
               Login
             </button>
-            <button onClick={handleSignupClick} className="bg-[#a6c1ee] text-black px-5 py-0.5 rounded-full hover:bg-[#87acec]">
+            <button onClick={handleSignupClick} className="bg-[#1be95c] text-black px-5 py-0.5 rounded-full hover:bg-[#6cd81e]">
               Sign up
             </button>
           </div>
