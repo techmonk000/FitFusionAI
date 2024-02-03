@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import "./Team.css";
-import swarnavo from "../assets/team-member1.jpg";
-import mrinmoy from "../assets/Team-member2.jpg";
-import stuti from "../assets/Team-member3.jpg";
-import raj from "../assets/Team-Member4.jpg";
+import swarnavo from "../assets/teamMember1.jpg";
+import mrinmoy from "../assets/teamMember2.jpg";
+import stuti from "../assets/teamMember3.jpg";
+import raj from "../assets/teamMember4.jpg";
 import { FiAward } from "react-icons/fi";
 
 function Team() {
