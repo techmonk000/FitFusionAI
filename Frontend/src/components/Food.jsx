@@ -5,7 +5,9 @@ const Popup = ({ onClose, items }) => {
   return (
     <div className="popup fixed top-25 left-25 rounded-2xl bg-gradient-to-tl from-gray-600 to-teal-600 border-2 h-2/4 w-2/4 overflow-auto">
       <ul>
-        {items}
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </ul>
       <button className="absolute bottom-3 right-5 z-10" onClick={onClose}>
         Close
@@ -20,6 +22,11 @@ const Food = () => {
   const [cal, setCal] = useState(null);
   const { isLoggedIn, getToken } = useAuth();
   const [popupVisible, setPopupVisible] = useState(false);
+  const [breakfast, setBreakfast] = useState([]);
+  const [lunch, setLunch] = useState([]);
+  const [snacks, setSnacks] = useState([]);
+  const [dinner, setDinner] = useState([]);
+  const [currentMeal, setCurrentMeal] = useState(null);
 
   const openPopup = () => {
     setPopupVisible(true);
@@ -29,8 +36,21 @@ const Food = () => {
     setPopupVisible(false);
   };
 
-  const handleButtonClick = (content) => {
-      openPopup(content);
+  const handleButton1Click = (content) => {
+    setCurrentMeal("Breakfast");
+    openPopup(content, breakfast);
+  };
+  const handleButton2Click = (content) => {
+    setCurrentMeal("Lunch");
+    openPopup(content,lunch);
+  };
+  const handleButton3Click = (content) => {
+    setCurrentMeal("Snacks");
+    openPopup(content,snacks);
+  };
+  const handleButton4Click = (content) => {
+    setCurrentMeal("Dinner");
+    openPopup(content,dinner);
   };
   const host = "http://localhost:5000";
   const host2 = "http://localhost:8000";
@@ -71,12 +91,41 @@ const Food = () => {
 
         const fooddata = await res.json();
         console.log(fooddata);
-        setCal(fooddata[1])
-        var s = fooddata[2][1];
-        let trimmedString = s.split(":");
-        let grainsList = trimmedString[1].trim();
-        setFood(grainsList);
+        setCal(fooddata[1]);
+        const breakfastList = [];
+        const lunchList = [];
+        const snackList = [];
+        const dinnerList = [];
 
+        for (let i = 1; i <= 9; i++) {
+          const item = fooddata[2][i];
+          const itemStr = item.split(":");
+          const itemList = itemStr[1].trim();
+          breakfastList.push(itemList);
+        }
+        for (let i = 11; i <= 17; i++) {
+          const item = fooddata[2][i];
+          const itemStr = item.split(":");
+          const itemList = itemStr[1].trim();
+          lunchList.push(itemList);
+        }
+        for (let i = 19; i <= 24; i++) {
+          const item = fooddata[2][i];
+          const itemStr = item.split(":");
+          const itemList = itemStr[1].trim();
+          snackList.push(itemList);
+        }
+        for (let i = 26; i <= 32; i++) {
+          const item = fooddata[2][i];
+          const itemStr = item.split(":");
+          const itemList = itemStr[1].trim();
+          dinnerList.push(itemList);
+        }
+
+        setBreakfast(breakfastList);
+        setLunch(lunchList);
+        setSnacks(snackList);
+        setDinner(dinnerList);
       } catch (error) {
         console.error(error.message);
       }
@@ -96,19 +145,25 @@ const Food = () => {
             <div className="flex flex-col gap-4">
               <button
                 className="w-80 h-10 border-2"
-                onClick={() => handleButtonClick("Breakfast")}
+                onClick={() => handleButton1Click("Breakfast")}
               >
                 Breakfast
               </button>
               <button
                 className="w-80 h-10 border-2"
-                onClick={() => handleButtonClick("Lunch")}
+                onClick={() => handleButton2Click("Lunch")}
               >
                 Lunch
               </button>
               <button
                 className="w-80 h-10 border-2"
-                onClick={() => handleButtonClick("Dinner")}
+                onClick={() => handleButton3Click("Snacks")}
+              >
+                Snacks
+              </button>
+              <button
+                className="w-80 h-10 border-2"
+                onClick={() => handleButton4Click("Dinner")}
               >
                 Dinner
               </button>
@@ -119,7 +174,7 @@ const Food = () => {
         )}
       </div>
       {/* Conditionally render the Popup component */}
-      {popupVisible && <Popup onClose={closePopup} items={food} />}
+      {popupVisible && <Popup onClose={closePopup} items={currentMeal === "Breakfast" ? breakfast : currentMeal === "Lunch" ? lunch : currentMeal === "Snacks" ? snacks : dinner} />}
     </div>
   );
 };
