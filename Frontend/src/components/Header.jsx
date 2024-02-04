@@ -47,12 +47,6 @@ export default function Header() {
   const handleSignupClick = () => {
     navigate("/signup");
   };
-  const handleAboutUsClick = () => {
-    navigate("/aboutus");
-  };
-  const scrollToSection = (ref) => {
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  };
 
   return !isLoggedIn ? (
     <div className="px-8 py-8 fixed z-10 w-full" style={outerDivStyle}>
@@ -84,7 +78,7 @@ export default function Header() {
               </svg>
             </div>
           ) : (
-            <ul className="flex md:flex-row flex-col md:items-center gap-8">
+            <ul className="flex md:flex-row flex-col md:items-center gap-20">
               <li>
                 <ScrollLink
                   to="features" // Specify the target element's id
@@ -102,7 +96,7 @@ export default function Header() {
                   duration={500}
                   className="cursor-pointer"
                 >
-                  AboutUs
+                  About Us
                 </ScrollLink>
               </li>
               <li>

@@ -63,7 +63,7 @@ export default function Header2() {
         </div>
         <div className="flex items-center">
         {isMobile ? (
-            <>
+            <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -80,29 +80,25 @@ export default function Header2() {
                   d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                 />
               </svg>
-            </>
+            </div>
           ) : (
-          <ul className="flex md:flex-row flex-col md:items-center gap-3">
+          <ul className="flex md:flex-row flex-col md:items-center gap-16">
             <li>
-              <a className="hover:text-gray-500" href="#">
+              <Link className="hover:text-gray-500" to="posedetector">
                 Pose Detector
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="hover:text-gray-500" href="#">
+              <Link className="hover:text-gray-500" to="food">
                 Diet Recommender
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="hover:text-gray-500" href="#">
+              <Link className="hover:text-gray-500" to="therapy">
                 Therapy
-              </a>
+              </Link>
             </li>
-            <li>
-              <a className="hover:text-gray-500" href="#">
-                About Us
-              </a>
-            </li>
+            
           </ul>
           )}
         </div>
@@ -138,12 +134,12 @@ export default function Header2() {
             </div>
             <ul className="py-2" aria-labelledby="user-menu-button">
               <li>
-                <a
-                  href="#"
+                <Link
+                  to="userdetails"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                 >
                   User-Details
-                </a>
+                </Link>
               </li>
               <li>
                 <button
