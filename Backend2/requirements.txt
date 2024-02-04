@@ -1,0 +1,8 @@
+mediapipe
+numpy
+opencv-python
+Flask
+pandas
+Flask-CORS
+requests
+gunicorn
