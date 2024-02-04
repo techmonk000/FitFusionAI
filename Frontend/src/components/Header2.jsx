@@ -9,7 +9,9 @@ export default function Header2() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, getToken, isLoggedIn } = useAuth();
+  const host = 'http://localhost:5000';
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +27,35 @@ export default function Header2() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+    
   }, []);
+
+  // useEffect(() => {
+  //   if(isLoggedIn){
+  //   const fetchUserDetails = async () => {
+  //     try {
+  //       const response = await fetch(`${host}/api/auth/getuser`, {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           'authtoken': `${getToken()}`,
+  //         },
+  //       });
+
+  //       if (!response.ok) {
+  //         throw new Error('Failed to fetch user details');
+  //       }
+
+  //       const userData = await response.json();
+  //       setUser(userData);
+  //     } catch (error) {
+  //       console.error(error.message);
+  //     }
+  //   };
+
+  //   fetchUserDetails();
+  // }
+  // }, []);
 
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
@@ -48,9 +78,7 @@ export default function Header2() {
     logout()
     navigate("/");
   };
-  const handleAboutUsClick = () => {
-    navigate("/aboutus");
-  };
+
 
   return (
     <div className="px-8 py-8 fixed z-10 w-full" style={outerDivStyle}>
@@ -126,10 +154,10 @@ export default function Header2() {
           >
             <div className="px-4 py-3">
               <span className="block text-sm text-gray-900 dark:text-white">
-                Bonnie Green
+                abc
               </span>
               <span className="block text-sm  text-gray-500 truncate dark:text-gray-400">
-                name@flowbite.com
+                abc@gmail.com
               </span>
             </div>
             <ul className="py-2" aria-labelledby="user-menu-button">

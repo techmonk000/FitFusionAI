@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import Header2 from "./Header2";
 import { Link as ScrollLink } from "react-scroll";
@@ -115,26 +115,36 @@ export default function Header() {
         {isMobile && menuOpen && (
           <div className="md:hidden absolute right-0 top-20 bg-white p-4 shadow-md">
             <ul className="flex flex-col gap-4">
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  Features
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  Team
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-500" href="#">
-                  Contact Us
-                </a>
-              </li>
+            <li>
+            <ScrollLink
+              to="features" // Specify the target element's id
+              smooth={true}
+              duration={500}
+              className="cursor-pointer"
+            >
+              Features
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="aboutus" // Specify the target element's id
+              smooth={true}
+              duration={500}
+              className="cursor-pointer"
+            >
+              About Us
+            </ScrollLink>
+          </li>
+          <li>
+            <ScrollLink
+              to="team" // Specify the target element's id
+              smooth={true}
+              duration={500}
+              className="cursor-pointer"
+            >
+              Team
+            </ScrollLink>
+          </li>
               <li>
                 <button
                   onClick={handleLoginClick}
