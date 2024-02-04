@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router";
 
 const Popup = ({ onClose, items }) => {
   return (
@@ -17,6 +18,7 @@ const Popup = ({ onClose, items }) => {
 };
 
 const Food = () => {
+  const navigate = useNavigate()
   const [user, setUser] = useState(null);
   const [cal, setCal] = useState(null);
   const { isLoggedIn, getToken } = useAuth();
@@ -55,6 +57,12 @@ const Food = () => {
   const host2 = "https://cbf8-34-133-34-233.ngrok-free.app";
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      // Redirect or handle unauthorized access
+      console.log("User not logged in. Redirecting...");
+      navigate("/login"); // Redirect to login page
+      return;
+    }
     const fetchUserDetails = async () => {
       try {
         // Fetch user details

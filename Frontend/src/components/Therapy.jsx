@@ -1,12 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
 export default function Therapy() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const navigate = useNavigate();
+  const { isLoggedIn } =useAuth();
 
   const handleInputChange = (e) => {
     setInput(e.target.value);
   };
+  useEffect(() => {
+    if (!isLoggedIn) {
+      // Redirect or handle unauthorized access
+      console.log("User not logged in. Redirecting...");
+      navigate("/login"); // Redirect to login page
+      return;
+    }
+  }, [])
 
   const handleSendMessage = async () => {
     if (input.trim() !== "") {

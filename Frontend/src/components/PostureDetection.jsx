@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
+import { useAuth } from "../context/AuthContext";
 
 export default function PostureDetection() {
+  const navigate = useNavigate();
+  const { isLoggedIn } =useAuth();
   const videoRef = useRef();
   const [initialAngles, setInitialAngles] = useState({ left: 90, right: 90 });
   const [currentAngles, setCurrentAngles] = useState({ left: 0, right: 0 });
@@ -15,6 +19,12 @@ export default function PostureDetection() {
   };
 
   useEffect(() => {
+    if (!isLoggedIn) {
+      // Redirect or handle unauthorized access
+      console.log("User not logged in. Redirecting...");
+      navigate("/login"); // Redirect to login page
+      return;
+    }
     const fetchData = async () => {
       try {
         if (isCapturing) {
