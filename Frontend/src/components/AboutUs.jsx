@@ -5,12 +5,11 @@ import mind from "../assets/mental.png";
 
 export default function AboutUs() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300 p-24">
+    
       <div className="overflow-hidden p-8 bg-green-700 bg-opacity-30 h-full shadow-2xl shadow-black rounded-xl  backdrop-blur-xl backdrop-filter flex mx-auto space-x-8"> {/* Updated space-x-8 */}
-        <div className="flex-2 max-w-5xl">
-          <h1 className="text-6xl font-bold mb-6 pl-[350px] text-gray-800 bg-gradient-to-r from-green-700 from-10% via-sky-500 via-30% to-green-600  to-90% inline-block text-transparent bg-clip-text">
-            About Us
-          </h1>
+        
+      <div className="flex-2 max-w-5xl">
+          
           <div className="flex flex-col space-y-8">
             <div className="flex flex-row gap-5 items-center">
               <p className="text-gray-700 text-xl text-left font-semibold">
@@ -54,6 +53,5 @@ export default function AboutUs() {
         </div>
 
       </div>
-    </div>
   );
 }

@@ -1,9 +1,14 @@
 // import React from "react";
+import { useRef } from "react";
 import home from "../assets/home-img.png";
 import ImageCarousel from "./Carousel";
 import Team from "./Team";
+import AboutUs from "./AboutUs";
 
 export default function Landing() {
+  const features = useRef(null);
+  const aboutus  = useRef(null);
+  const team  = useRef(null);
   return (
     <>
       <div className=" overflow-hidden bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300">
@@ -17,7 +22,7 @@ export default function Landing() {
         </div>
       </div>
 
-      <div className="bg-gradient-to-bl from-green-400 via-gray-50 to-teal-300 h-dvh flex items-center justify-center flex-col">
+      <div  ref={features} id="features" className="bg-gradient-to-bl from-green-400 via-gray-50 to-teal-300 h-dvh flex items-center justify-center flex-col">
         <p className="text-black text-4xl text-center">
           <b>Easy to use</b> <br /> Features to make your <br />
           <b>life healthy</b>{" "}
@@ -25,9 +30,17 @@ export default function Landing() {
         <br />
         <ImageCarousel />
       </div>
-      <div className="bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300 h-dvh flex items-center justify-center flex-col">
+      <div ref={aboutus} id="aboutus" className="flex items-center flex-col justify-center min-h-screen bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300 p-24">
+      <h1 className="text-6xl font-bold mb-6  text-gray-800 bg-gradient-to-r from-green-700 from-10% via-sky-500 via-30% to-green-600  to-90% inline-block text-transparent bg-clip-text">
+            About Us
+          </h1>
+      <AboutUs />
+      </div>
+      <div ref={team} id="team" className="bg-gradient-to-bl from-green-400 via-gray-50 to-teal-300 h-dvh flex items-center justify-center flex-col">
+      
         <Team />
       </div>
+      
     </>
   );
 }
