@@ -52,7 +52,7 @@ const Food = () => {
     openPopup(content,dinner);
   };
   const host = "https://express-backend-le3i.onrender.com";
-  const host2 = "https://3e9f-34-133-34-233.ngrok-free.app";
+  const host2 = "https://cbf8-34-133-34-233.ngrok-free.app";
 
   useEffect(() => {
     const fetchUserDetails = async () => {
