@@ -52,6 +52,6 @@ This project is licensed under the [MIT License](https://github.com/techmonk000/
 
 ## Acknowledgments 🙌
 
-DON2604 RajBhattacharyya Techmonk000
+[DON2604](https://github.com/DON2604) [RajBhattacharyya](https://github.com/RajBhattacharyya) [Techmonk000](https://github.com/techmonk000) [](https://github.com/techmonk000)
 
   `Remember to replace "your-username" with your actual GitHub username.`
