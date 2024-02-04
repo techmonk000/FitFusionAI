@@ -42,7 +42,7 @@ export default function PostureDetection() {
                 const imageData = canvas.toDataURL("image/jpeg");
 
                 const response = await axios.post(
-                  "https://python-backend-b9tb.onrender.com/video_frame",
+                  "https://3e9f-34-133-34-233.ngrok-free.app/video_frame",
                   { frame: imageData }
                 );
 
