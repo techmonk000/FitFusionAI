@@ -33,7 +33,7 @@ const UserDetails = () => {
 
   return (
     <div className="flex  justify-center p-64 h-full bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300">
-      {!user ? (
+      {user ? (
         <div>
         <div className='p-4 items-center  rounded-2xl bg-gradient-to-r from-green-700 to-90% inline-block text-transparent  bg-clip-text text-center font-bold w-full h-full leading-loose border-4 border-teal-400  text-green-700 text-3xl  ' >
           <div>Name:            Stuti</div>
