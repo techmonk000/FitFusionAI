@@ -48,10 +48,10 @@ Feel free to contribute by [forking the repository]() and creating a pull reques
 
 ## License 📄
 
-This project is licensed under the [MIT License](https://chat.openai.com/c/LICENSE.md) - see the [LICENSE.md](https://chat.openai.com/c/LICENSE.md) file for details.
+This project is licensed under the [MIT License](https://github.com/techmonk000/FitFusionAI/blob/master/LICENSE) - see the [LICENSE.md](https://github.com/techmonk000/FitFusionAI/blob/master/LICENSE) file for details.
 
 ## Acknowledgments 🙌
 
-Thanks to the FitFusionAI community and contributors who make this project possible.
+@DON2604 @RajBhattacharyya @Techmonk000
 
   `Remember to replace "your-username" with your actual GitHub username.`
