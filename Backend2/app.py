@@ -2,17 +2,28 @@ import cv2
 import mediapipe as mp
 import time
 import math
-from flask import Flask, render_template, request, Response, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 import base64
 import numpy as np
 import pandas as pd
-"""from termcolor import colored"""
 import io
 import requests
+from pyngrok import ngrok
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 
-print("http://127.0.0.1:8000")
+# Retrieve Ngrok authentication token from environment variable
+ngrok_auth_token = os.getenv("NGROK_AUTH_TOKEN")
+if ngrok_auth_token is None:
+    raise ValueError("Ngrok authentication token not found in environment variables.")
+
+port_no=5000
+public_url = ngrok.connect(port_no).public_url
+print(public_url)
+
 
 app = Flask(__name__)
 CORS(app)
@@ -319,4 +330,4 @@ def calculate_calories_from_user_input(weight, height, age, gender,level,meal,ai
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(host='0.0.0.0', port=port_no)
