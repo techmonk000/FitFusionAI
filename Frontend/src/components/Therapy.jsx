@@ -12,7 +12,7 @@ export default function Therapy() {
     if (input.trim() !== "") {
       try {
         // Make a POST request to your Express backend endpoint "/messages"
-        const response = await fetch("http://localhost:5000/api/messages", {
+        const response = await fetch("https://express-backend-le3i.onrender.com/api/messages", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

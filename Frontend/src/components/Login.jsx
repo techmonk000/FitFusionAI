@@ -9,7 +9,7 @@ export default function Login() {
   const { login, setAuthToken } = useAuth()
   const [seePassword, setSeePassword] = useState(false);
 
-  const host = "http://localhost:5000";
+  const host = "https://express-backend-le3i.onrender.com";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ export default function Login() {
       localStorage.setItem("token", json.authtoken);
       setAuthToken(json.authtoken);
       login();
-      navigate("/food");
+      navigate("/posedetector");
     }
   };
 

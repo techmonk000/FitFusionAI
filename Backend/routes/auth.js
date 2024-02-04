@@ -156,8 +156,8 @@ router.patch("/updateuser", fetchuser, async (req, res) => {
     if (height !== undefined) updateFields.height = height;
     if (weight !== undefined) updateFields.weight = weight;
     if (exercise !== undefined) updateFields.exercise = exercise;
-    if (disease) updateFields.disease = disease;
-    if (allergy) updateFields.allergy = allergy;
+    if (disease) updateFields.disease = Array.isArray(disease) ? disease : [disease];
+    if (allergy) updateFields.allergy = Array.isArray(allergy) ? allergy : [allergy];
 
     const updatedUser = await User.findByIdAndUpdate(
       userId,

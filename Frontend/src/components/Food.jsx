@@ -18,7 +18,6 @@ const Popup = ({ onClose, items }) => {
 
 const Food = () => {
   const [user, setUser] = useState(null);
-  const [food, setFood] = useState([]);
   const [cal, setCal] = useState(null);
   const { isLoggedIn, getToken } = useAuth();
   const [popupVisible, setPopupVisible] = useState(false);
@@ -52,8 +51,8 @@ const Food = () => {
     setCurrentMeal("Dinner");
     openPopup(content,dinner);
   };
-  const host = "http://localhost:5000";
-  const host2 = "http://localhost:8000";
+  const host = "https://express-backend-le3i.onrender.com";
+  const host2 = "https://python-backend-b9tb.onrender.com";
 
   useEffect(() => {
     const fetchUserDetails = async () => {

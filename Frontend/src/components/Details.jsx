@@ -18,7 +18,7 @@ export default function Details() {
   const navigate = useNavigate();
   const { isLoggedIn, getToken } = useAuth();
 
-  const host = 'http://localhost:5000';
+  const host = 'https://express-backend-le3i.onrender.com';
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -44,7 +44,7 @@ export default function Details() {
       });
 
       if (response.ok) {
-        navigate("/therapy");
+        navigate("/posedetector");
       } else {
         console.error('Failed to update user details');
       }

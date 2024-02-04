@@ -40,11 +40,11 @@ const UserSchema = new Schema({
     default: null,
   },
   disease: {
-    type: String,
+    type: [String],
     default: null,
   },
   allergy: {
-    type: String,
+    type: [String],
     default: null,
   },
   timestamp: {

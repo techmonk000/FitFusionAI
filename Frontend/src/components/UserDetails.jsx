@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
 
 const UserDetails = () => {
   const [user, setUser] = useState(null);
   const { isLoggedIn, getToken } = useAuth();
-  const host = 'http://localhost:5000';
+  const host = "https://express-backend-le3i.onrender.com";
 
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
         const response = await fetch(`${host}/api/auth/getuser`, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'authtoken': `${getToken()}`,
+            "Content-Type": "application/json",
+            authtoken: `${getToken()}`,
           },
         });
 
         if (!response.ok) {
-          throw new Error('Failed to fetch user details');
+          throw new Error("Failed to fetch user details");
         }
 
         const userData = await response.json();
@@ -32,28 +32,34 @@ const UserDetails = () => {
   }, []);
 
   return (
-    <div className="flex  justify-center p-64 h-full bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300">
-      {user ? (
-        <div>
-        <div className='p-4 items-center  rounded-2xl bg-gradient-to-r from-green-700 to-90% inline-block text-transparent  bg-clip-text text-center font-bold w-full h-full leading-loose border-4 border-teal-400  text-green-700 text-3xl  ' >
-          <div>Name:            Stuti</div>
-        <div className='flex text-center ml-44 items-center'>
-        <div>
-          <div>Age:             19</div>
-          <div>Gender:          female</div>
-          <div>Diet-Preference: food</div>
-          <div>Height:          150</div></div>
-         <div > <div>Weight:          52</div>
-          <div>Exercise:        no</div>
-          <div>&nbsp;&nbsp;Disease:         no</div>
-          <div>Allergy:         no</div></div>
-        </div>
-        </div>
-        </div>
-        
-      ) : (
-        <p>Loading user details...</p>
-      )}
+    <div className="flex items-center justify-center h-dvh bg-gradient-to-tl from-green-400 via-gray-50 to-teal-300">
+      <div className=" p-8 bg-white bg-opacity-30 h-3/4 w-3/4 rounded-xl shadow-lg backdrop-blur-xl backdrop-filter flex">
+        {user ? (
+          <div className="w-full border-2 ">
+            <div className="text-6xl  pb-12">Name: Stuti</div>
+            <div className="flex text-2xl flex-col justify-evenly w-full border-2">
+              <div className="flex flex-row gap-48 text-2xl">
+                <div>Age:19</div>
+                <div>Gender:female</div>
+              </div>
+              <div className="flex flex-row text-2xl gap-48">
+                <div>Diet-Preference: food</div>
+                <div>Height:150</div>
+              </div>
+              <div className="flex flex-row text-2xl gap-48">
+                <div>Weight:52</div>
+                <div>Exercise:no</div>
+              </div>
+              <div className="flex flex-row text-2xl gap-48">
+                <div>Disease:no</div>
+                <div>Allergy:no</div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <p>Loading user details...</p>
+        )}
+      </div>
     </div>
   );
 };
