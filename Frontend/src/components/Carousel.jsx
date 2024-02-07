@@ -32,7 +32,7 @@ export default function ImageCarousel() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 10000, // Set the interval for automatic sliding (in milliseconds)
+    autoplaySpeed: 4000, // Set the interval for automatic sliding (in milliseconds)
     nextArrow: <CustomNextArrow />,  // Custom arrow components
     prevArrow: <CustomPrevArrow />,};
 
